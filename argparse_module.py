@@ -1,5 +1,5 @@
 # argparse module practice
-
+# https://docs.python.org/3/library/argparse.html
 '''
 ====================================================================================
 Compatibility
@@ -22,18 +22,26 @@ EXAMPLE:
 - Code takes a list of integers and produces either the sum or the max:
 '''
 import argparse
-
-parser = argparse.ArgumentParser(description='Process some integers.')
-
-parser.add_argument('integers', metavar='N', type=int, nargs='+', 
-						help='an integer for the accumulator')
-
-parser.add_argument('--sum', dest='accumulate', action='store_const', 
-					const=sum, default=max,
-					help='sum the integers (default: find the max)')
-
-args=parser.parse_args()
-print(args.accumulate(args.integers))
+									#STEPS:
+parser = argparse.ArgumentParser(description='Process some integers.')  # <-- (1) Creating a PARSER -- 
+									# 	- create an 'ArgumentParser' object
+									#	- this obj will hold all the info necessary to 
+									#	parse the cmdline into python data types
+		
+parser.add_argument('integers', metavar='N', type=int, nargs='+', 	#
+			help='an integer for the accumulator')		#
+									#
+parser.add_argument('--sum', dest='accumulate', action='store_const', 	#
+			const=sum, default=max,				#
+		help='sum the integers (default: find the max)')	#
+									#
+args=parser.parse_args()						#
+print(args.accumulate(args.integers))					#
+									#
+	
+	
+	
+	
 
 
 
